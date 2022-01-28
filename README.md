@@ -2,4 +2,4 @@
 
 ## Design
 
-![Uml Design](uml_design.png)
+![Uml Design](design/uml_design.png)
