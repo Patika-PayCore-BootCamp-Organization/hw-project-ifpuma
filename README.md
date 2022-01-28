@@ -1,5 +1,5 @@
 # Electric Charging Station Reservation Application
 
-##Design
+## Design
 
 ![Uml Design](uml_design.png)
