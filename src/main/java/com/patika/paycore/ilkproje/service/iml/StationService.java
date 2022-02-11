@@ -25,6 +25,12 @@ public class StationService implements IStationService {
     }
 
     @Override
+    public Station findStationByProvince(String province) {
+        return stationDal.findStationByProvince(province);
+    }
+
+
+    @Override
     public boolean addStation(Station station) {
          stationDal.save(station);
          return true;

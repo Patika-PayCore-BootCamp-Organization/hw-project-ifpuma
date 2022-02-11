@@ -34,6 +34,8 @@ public class Request implements Serializable {
     @NotNull(message = "neighborhood can not be null")
     private String neighborhood;
 
-    @JoinColumn(name="client_id", referencedColumnName = "client_id")
+    @NotNull(message = "client can not be null")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="request_client_id", referencedColumnName = "client_id")
     private Client client;
 }

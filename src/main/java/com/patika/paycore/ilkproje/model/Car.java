@@ -29,4 +29,5 @@ public class Car implements Serializable {
     @Column(name="car_brand")
     @NotNull(message = "brand name can not be null")
     private String brand;
+
 }

@@ -11,6 +11,9 @@ public interface IStationService {
     List<Station> getAllStations();
 
     Optional<Station> getStation(Integer id);
+
+    Station findStationByProvince(String province);
+
     //temel metotlar şimdilik boolean dönsün.
     boolean addStation(Station station);
 

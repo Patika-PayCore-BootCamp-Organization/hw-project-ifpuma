@@ -43,6 +43,8 @@ public class Client implements Serializable {
     @NotNull(message = "email can not be null")
     private String email;
 
-    @JoinColumn(name="car_id", referencedColumnName = "car_id")
+    @NotNull(message = "car can not be null")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="client_car_id", referencedColumnName = "car_id")
     private Car car;
 }

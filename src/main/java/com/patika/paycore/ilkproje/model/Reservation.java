@@ -1,5 +1,6 @@
 package com.patika.paycore.ilkproje.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,12 +29,14 @@ public class Reservation implements Serializable {
     @NotNull(message = "reservation date can not be null")
     private Date reservationDate;
 
+    @NotNull(message = "station can not be null")
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="station_id", referencedColumnName = "station_id")
     private Station station;
 
+    @NotNull(message = "client can not be null")
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="client_id", referencedColumnName = "client_id")
     private Client client;
 
-    @JoinColumn(name="reservation_detail_id", referencedColumnName = "reservation_detail_id")
-    private ReservationDetail reservationDetail;
 }

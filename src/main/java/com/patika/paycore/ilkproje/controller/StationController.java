@@ -29,6 +29,11 @@ public class StationController {
         return stationService.getStation(id);
     }
 
+    @GetMapping(value="/byProvince/{province}")
+    public Station findStationByProvince(@PathVariable String province){
+        return stationService.findStationByProvince(province);
+    }
+
     @PostMapping(value = "/delete")
     public boolean deleteStation(@RequestParam @Min(1) Integer id){
         return stationService.deleteStation(id);

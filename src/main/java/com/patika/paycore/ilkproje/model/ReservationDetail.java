@@ -27,6 +27,10 @@ public class ReservationDetail implements Serializable {
     @NotNull(message = "reservation date can not be null")
     private Date reservationDate;
 
+    @NotNull(message = "station date can not be null")
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="station_id", referencedColumnName = "station_id")
     private Station station;
+
+
 }
