@@ -53,8 +53,7 @@ public class StationService implements IStationService {
         stationDal.findById(id).orElseThrow(()-> new NotFoundException("Station"));
         Station station = stationDal.getById(id);
         try {
-            Boolean isStationUsed = station.getReservations().stream().anyMatch(c ->
-                    station.getReservations().equals(c)) || station.getReservationDetails().stream().anyMatch(c ->
+            Boolean isStationUsed = station.getReservationDetails().stream().anyMatch(c ->
                     station.getReservationDetails().equals(c));
             if (!isStationUsed)
                 stationDal.deleteById(id);

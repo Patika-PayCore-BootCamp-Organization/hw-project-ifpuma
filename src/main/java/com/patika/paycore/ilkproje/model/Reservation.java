@@ -24,22 +24,24 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="reservation_date")
-    @NotNull(message = "reservation date can not be null")
-    private Date reservationDate;
+    //@Column(name="reservation_date")
+    //@NotNull(message = "reservation date can not be null")
+    //private Date reservationDate;
 
     //@NotNull(message = "station can not be null")
     //@ManyToOne(cascade = CascadeType.MERGE)
     //@JoinColumn(name="station_id", referencedColumnName = "station_id")
     //private Station station;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "station_id")
-    private Station station;
 
     @NotNull(message = "client can not be null")
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="client_id", referencedColumnName = "client_id")
     private Client client;
+
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "reservation_detail_id")
+    private ReservationDetail reservationDetail;
 
 }

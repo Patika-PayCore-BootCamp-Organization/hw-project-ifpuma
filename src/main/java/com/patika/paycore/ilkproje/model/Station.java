@@ -41,10 +41,6 @@ public class Station implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "station",cascade = CascadeType.MERGE)
-    private List<Reservation> reservations;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "station",cascade = CascadeType.MERGE)
     private List<ReservationDetail> reservationDetails;
 
 }

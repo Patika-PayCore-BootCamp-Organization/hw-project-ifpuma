@@ -1,5 +1,6 @@
 package com.patika.paycore.ilkproje.service.iml;
 
+import com.patika.paycore.ilkproje.exception.AlreadyExist;
 import com.patika.paycore.ilkproje.exception.NotFoundException;
 import com.patika.paycore.ilkproje.model.Reservation;
 import com.patika.paycore.ilkproje.model.Station;
@@ -17,6 +18,7 @@ import java.util.Optional;
 public class ReservationService implements IReservationService {
 
     private final ReservationDal reservationDal;
+    private final ReservationDetailService reservationDetailService;
 
     @Override
     public List<Reservation> getAllReservations() {
@@ -31,8 +33,14 @@ public class ReservationService implements IReservationService {
 
     @Override
     public boolean addReservation(Reservation reservation) {
-        reservationDal.save(reservation);
-        return true;
+        Integer reservationDetailId = reservation.getReservationDetail().getId();
+        Boolean isReserved= getAllReservations().stream().anyMatch(r->reservationDetailId.equals(r.getReservationDetail().getId()));
+        if(isReserved)
+            throw new AlreadyExist(reservationDetailId);
+                    else {
+            reservationDal.save(reservation);
+            return true;
+        }
     }
 
     @Override
