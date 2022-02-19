@@ -2,4 +2,7 @@
 
 ## Design
 
-![Uml Design](uml_design.png)
+![Uml Design](uml-patika.png)
+
+
+
