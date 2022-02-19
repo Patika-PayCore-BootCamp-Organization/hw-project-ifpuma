@@ -11,12 +11,13 @@ public interface IClientService {
 
     List<Client> getAllClients();
 
-    Optional<Client> getClient (Integer id);
+    Client getClient (Integer id);
 
     boolean deleteClient(Integer id);
 
     boolean addClient(Client client);
 
     boolean updateClient(Integer id,Client client);
+
 
 }

@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "reservation")
 public class Reservation implements Serializable {
 
     @Id
@@ -29,9 +28,13 @@ public class Reservation implements Serializable {
     @NotNull(message = "reservation date can not be null")
     private Date reservationDate;
 
-    @NotNull(message = "station can not be null")
+    //@NotNull(message = "station can not be null")
+    //@ManyToOne(cascade = CascadeType.MERGE)
+    //@JoinColumn(name="station_id", referencedColumnName = "station_id")
+    //private Station station;
+
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="station_id", referencedColumnName = "station_id")
+    @JoinColumn(name = "station_id")
     private Station station;
 
     @NotNull(message = "client can not be null")

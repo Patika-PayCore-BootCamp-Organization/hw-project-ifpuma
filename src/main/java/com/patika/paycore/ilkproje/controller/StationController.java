@@ -25,7 +25,7 @@ public class StationController {
     }
 
     @GetMapping(value="/{id}")
-    public Optional<Station> getByIdStation(@PathVariable @Min(1) Integer id){
+    public Station getByIdStation(@PathVariable @Min(1) Integer id){
         return stationService.getStation(id);
     }
 

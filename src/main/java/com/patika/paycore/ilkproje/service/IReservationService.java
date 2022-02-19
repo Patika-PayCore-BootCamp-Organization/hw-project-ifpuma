@@ -11,7 +11,7 @@ public interface IReservationService {
 
     List<Reservation> getAllReservations();
 
-    Optional<Reservation> getReservation(Integer id);
+    Reservation getReservation(Integer id);
 
     boolean addReservation(Reservation reservation);
 
@@ -19,4 +19,5 @@ public interface IReservationService {
 
     boolean updateReservation(Integer id,Reservation reservation);
 
+    boolean deleteStation(Integer stationId);
 }

@@ -14,7 +14,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "request")
 public class Request implements Serializable {
 
     @Id

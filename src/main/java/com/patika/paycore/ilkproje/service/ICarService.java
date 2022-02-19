@@ -12,7 +12,7 @@ public interface ICarService {
     List<Car> getAllCars();
     Optional<Car> getCar(Integer id);
     boolean addCar(Car car);
-    boolean deleteCar(Integer id);
+    Boolean deleteCar(Integer id) throws NoSuchFieldException;
     boolean updateCar(Integer id,Car car);
 
 

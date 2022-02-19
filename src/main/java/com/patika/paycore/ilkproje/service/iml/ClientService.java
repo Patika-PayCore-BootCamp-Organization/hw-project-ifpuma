@@ -1,10 +1,12 @@
 package com.patika.paycore.ilkproje.service.iml;
 
+import com.patika.paycore.ilkproje.exception.NotFoundException;
 import com.patika.paycore.ilkproje.model.Client;
 import com.patika.paycore.ilkproje.model.Station;
 import com.patika.paycore.ilkproje.repository.ClientDal;
 import com.patika.paycore.ilkproje.service.IClientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +18,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ClientService implements IClientService {
 
-    private final ClientDal clientDal;
+    @Autowired
+    private ClientDal clientDal;
 
     @Override
     public List<Client> getAllClients() {
@@ -24,8 +27,9 @@ public class ClientService implements IClientService {
     }
 
     @Override
-    public Optional<Client> getClient(Integer id) {
-        return clientDal.findById(id);
+    public Client getClient(Integer id) {
+        Optional<Client> byId = clientDal.findById(id);
+        return byId.orElseThrow(()-> new NotFoundException("Client"));
     }
 
     @Override
@@ -46,4 +50,7 @@ public class ClientService implements IClientService {
         clientDal.save(client);
         return true;
     }
+
+
+
 }

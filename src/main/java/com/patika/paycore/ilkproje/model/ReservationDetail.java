@@ -15,7 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "reservation_detail")
 public class ReservationDetail implements Serializable {
 
     @Id

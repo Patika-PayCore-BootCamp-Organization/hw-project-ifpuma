@@ -73,7 +73,8 @@ CREATE TABLE reservation
 INSERT INTO station(station_name,station_city,station_province,station_address)
 VALUES ('X Benzin İstasyonu', 'Istanbul','Pendik','Veli caddesi no:10'),
         ('B Oteli', 'Muğla','Fethiye','Manolya sokak no:5'),
-        ('H Konutları', 'İstanbul','Gaziosmanpaşa','Sarıgöl mah');
+        ('H Konutları', 'İstanbul','Gaziosmanpaşa','Sarıgöl mah'),
+        ('X Evleri', 'Bursa','Nilüfer','Görükle mah');
 
 INSERT INTO car(car_brand,car_model)
 VALUES ('Volkswagen', 'e-Golf'),
@@ -87,7 +88,7 @@ VALUES ('Ali', 'Gümüş', 'male', 27, '905586986235', 'ali@gmail.com',3),
        ('Pınar', 'Özdil', 'female', 26, '905586986232', 'pinar@gmail.com',2),
        ('Ekin', 'Öztürk', 'female', 14, '905586986236', 'ekin@gmail.com',1),
        ('Furkan', 'Yılmaz', 'male', 25, '905586986238', 'furkan@gmail.com',4),
-       ('Bihter', 'Belgi', 'female', 29, '905586986239', 'bihter@gmail.com',5),
+       ('Bihter', 'Belgi', 'female', 29, '905586986239', 'bihter@gmail.com',3),
        ('Lale', 'Koç', 'female', 55, '905586986231', 'lale@hotmail.com',2);
 
 INSERT INTO request(request_city,request_province,request_neighborhood,request_client_id)

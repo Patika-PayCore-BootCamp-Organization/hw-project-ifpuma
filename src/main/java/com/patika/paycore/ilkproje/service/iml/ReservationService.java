@@ -1,7 +1,10 @@
 package com.patika.paycore.ilkproje.service.iml;
 
+import com.patika.paycore.ilkproje.exception.NotFoundException;
 import com.patika.paycore.ilkproje.model.Reservation;
+import com.patika.paycore.ilkproje.model.Station;
 import com.patika.paycore.ilkproje.repository.ReservationDal;
+import com.patika.paycore.ilkproje.repository.StationDal;
 import com.patika.paycore.ilkproje.service.IReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,8 +24,9 @@ public class ReservationService implements IReservationService {
     }
 
     @Override
-    public Optional<Reservation> getReservation(Integer id) {
-        return reservationDal.findById(id);
+    public Reservation getReservation(Integer id) {
+        Optional<Reservation> byId = reservationDal.findById(id);
+        return byId.orElseThrow(()-> new NotFoundException("Reservation"));
     }
 
     @Override
@@ -41,6 +45,12 @@ public class ReservationService implements IReservationService {
     public boolean updateReservation(Integer id, Reservation reservation) {
         reservation.setId(id);
         reservationDal.save(reservation);
+        return true;
+    }
+
+    @Override
+    public boolean deleteStation(Integer id) {
+        reservationDal.deleteById(id);
         return true;
     }
 }

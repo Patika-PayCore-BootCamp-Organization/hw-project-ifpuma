@@ -34,7 +34,7 @@ public class CarController {
     }
 
     @PostMapping(value = "/delete")
-    public boolean deleteCar(@RequestParam @Min(1) Integer id){
+    public Boolean deleteCar(@RequestParam @Min(1) Integer id){
         return carService.deleteCar(id);
     }
 

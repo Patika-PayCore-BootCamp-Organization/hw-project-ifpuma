@@ -1,5 +1,6 @@
 package com.patika.paycore.ilkproje.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,13 +9,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "car")
 public class Car implements Serializable {
 
     @Id
@@ -29,5 +30,9 @@ public class Car implements Serializable {
     @Column(name="car_brand")
     @NotNull(message = "brand name can not be null")
     private String brand;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "car",cascade = CascadeType.MERGE)
+    private List<Client> clients;
 
 }

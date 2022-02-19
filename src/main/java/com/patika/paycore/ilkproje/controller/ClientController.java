@@ -25,7 +25,7 @@ public class ClientController {
     }
 
     @GetMapping(value="/{id}")
-    public Optional<Client> getByIdClient(@PathVariable @Min(1) Integer id){
+    public Client getByIdClient(@PathVariable @Min(1) Integer id){
         return clientService.getClient(id);
     }
 
